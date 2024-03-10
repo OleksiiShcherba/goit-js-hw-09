@@ -1,0 +1,19 @@
+.gallery-overley-background {
+    background-color: rgba(46, 47, 66, 0.8);
+}
+
+.gallery-overley-background .sl-close {
+    color: #FFFFFF;
+}
+
+.gallery-overley-background .sl-next {
+    color: #FFFFFF;
+}
+
+.gallery-overley-background .sl-navigation button {
+    color: #FFFFFF;
+}
+
+.gallery-overley-background .sl-counter {
+    color: #FFFFFF;
+}
