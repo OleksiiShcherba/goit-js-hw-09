@@ -87,4 +87,7 @@ list_element.insertAdjacentHTML('afterBegin', new_elements);
 
 var lightbox = new SimpleLightbox('.gallery li a', {
   className: 'gallery-overley-background',
+  captionDelay: 250,
+  captionType: Text,
+  captionsData: 'alt',
 });
