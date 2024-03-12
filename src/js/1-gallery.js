@@ -1,6 +1,5 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import '../css/simplelightbox.css';
 
 const images = [
   {
@@ -85,9 +84,9 @@ images.forEach(element => {
 });
 list_element.insertAdjacentHTML('afterBegin', new_elements);
 
-var lightbox = new SimpleLightbox('.gallery li a', {
+const lightbox = new SimpleLightbox('.gallery li a', {
   className: 'gallery-overley-background',
   captionDelay: 250,
-  captionType: Text,
+  captionType: 'text',
   captionsData: 'alt',
 });

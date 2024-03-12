@@ -1,4 +1,4 @@
-function setDeafault() {
+function setDefault() {
   const local_storage_data = window.localStorage.getItem('feedback-form-state')
     ? JSON.parse(window.localStorage.getItem('feedback-form-state'))
     : null;
@@ -20,7 +20,7 @@ function formEvents() {
   const form_element = document.querySelector('.feedback-form');
 
   form_element.addEventListener('input', event => {
-    if (!['INPUT', 'TEXTAREA'].includes(event.target.nodeName)) {
+    if (!['email', 'message'].includes(event.target.name)) {
       return;
     }
 
@@ -38,10 +38,12 @@ function formEvents() {
       'feedback-form-state',
       JSON.stringify({
         email:
-          event.target.nodeName == 'INPUT' ? event.target.value : email_current,
+          event.target.name == 'email'
+            ? event.target.value.trim()
+            : email_current,
         message:
-          event.target.nodeName == 'TEXTAREA'
-            ? event.target.value
+          event.target.name == 'message'
+            ? event.target.value.trim()
             : message_current,
       })
     );
@@ -51,7 +53,7 @@ function formEvents() {
     event.preventDefault();
 
     for (let form_data_element of event.target.elements) {
-      if (!['INPUT', 'TEXTAREA'].includes(form_data_element.nodeName)) {
+      if (!['email', 'message'].includes(form_data_element.name)) {
         continue;
       }
 
@@ -61,11 +63,11 @@ function formEvents() {
       }
     }
 
-    console.log(window.localStorage.getItem('feedback-form-state'));
+    console.log(JSON.parse(window.localStorage.getItem('feedback-form-state')));
     window.localStorage.clear();
     event.target.reset();
   });
 }
 
-setDeafault();
+setDefault();
 formEvents();
